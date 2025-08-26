@@ -1,0 +1,313 @@
+/* PositionBoard Component Styles */
+
+.position-board-container {
+  padding: 1rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.position-board-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.position-board-back-button {
+  color: #6c757d;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease-in-out;
+}
+
+.position-board-back-button:hover {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.position-board-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Main Kanban Card Container */
+.kanban-main-card {
+  max-width: 1400px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.kanban-card-header {
+  background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%);
+  border: none;
+  border-radius: 12px 12px 0 0 !important;
+  color: white;
+  padding: 1.25rem;
+}
+
+.kanban-card-header .text-primary {
+  color: white !important;
+}
+
+.kanban-header-info h5 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.kanban-header-actions .badge {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.kanban-card-body {
+  background: #fafbfc;
+  border-radius: 0 0 12px 12px;
+  min-height: 70vh;
+}
+
+/* Kanban Board Layout */
+.kanban-board {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1.5rem;
+}
+
+/* Desktop Grid Layout - True Kanban: All columns in one row */
+.kanban-board-desktop .kanban-columns-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 70vh;
+  overflow-x: auto;
+  align-items: flex-start;
+}
+
+.kanban-board-desktop .kanban-column {
+  flex: 1;
+  min-width: 250px;
+  max-width: 320px;
+  margin-bottom: 0;
+}
+
+/* Mobile Flexbox Layout */
+.kanban-board-mobile .kanban-columns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Responsive breakpoints */
+@media (min-width: 768px) {
+  .position-board-container {
+    padding: 2rem;
+  }
+  
+  .position-board-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .position-board-title {
+    font-size: 2rem;
+  }
+  
+  .kanban-board {
+    padding: 0;
+  }
+}
+
+/* Large screens - More space and better proportions */
+@media (min-width: 1200px) {
+  .kanban-board-desktop .kanban-columns-container {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .kanban-board-desktop .kanban-column {
+    min-width: 280px;
+    max-width: 350px;
+  }
+  
+  .kanban-main-card {
+    max-width: 1600px; /* Allow more width on large screens */
+  }
+}
+
+/* Ultra-wide screens - Perfect for 5+ columns */
+@media (min-width: 1600px) {
+  .kanban-board-desktop .kanban-columns-container {
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .kanban-board-desktop .kanban-column {
+    min-width: 300px;
+    max-width: 400px;
+  }
+  
+  .kanban-main-card {
+    max-width: 1800px;
+  }
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 767.98px) {
+  .position-board-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .position-board-header {
+    margin-bottom: 1.5rem;
+    padding: 0 0.25rem;
+  }
+  
+  .position-board-title {
+    font-size: 1.5rem;
+  }
+  
+  .kanban-main-card {
+    margin: 0;
+    border-radius: 8px;
+  }
+  
+  .kanban-card-header {
+    padding: 1rem;
+    border-radius: 8px 8px 0 0 !important;
+  }
+  
+  .kanban-card-header h5 {
+    font-size: 1rem;
+  }
+  
+  .kanban-card-body {
+    min-height: 60vh;
+  }
+  
+  .kanban-board {
+    overflow-x: visible;
+    padding: 1rem;
+  }
+  
+  .kanban-columns-container {
+    padding: 0.5rem 0.25rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .kanban-board-desktop .kanban-columns-container {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .kanban-board-desktop .kanban-column {
+    min-width: 220px;
+    max-width: 280px;
+  }
+}
+
+/* Loading and error states */
+.position-board-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.position-board-error {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Focus indicators */
+.position-board-back-button:focus {
+  outline: 3px solid #0d6efd;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kanban-board,
+  .kanban-columns-container {
+    transition: none;
+  }
+  
+  .kanban-board *,
+  .kanban-board *::before,
+  .kanban-board *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .position-board-container {
+    background-color: #fff;
+    border: 2px solid #000;
+  }
+  
+  .position-board-header {
+    border-bottom-color: #000;
+    border-bottom-width: 3px;
+  }
+  
+  .position-board-title {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .position-board-back-button {
+    border: 2px solid #000 !important;
+    color: #000 !important;
+    background-color: #fff !important;
+  }
+}
+
+/* Touch target sizes for mobile accessibility */
+@media (max-width: 767px) {
+  .position-board-back-button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+    touch-action: manipulation;
+  }
+}
+
+/* Print styles */
+@media print {
+  .position-board-back-button {
+    display: none;
+  }
+  
+  .kanban-board-desktop .kanban-columns-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .position-board-container {
+    background-color: transparent;
+  }
+}
