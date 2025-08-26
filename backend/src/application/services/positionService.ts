@@ -21,11 +21,12 @@ export const getCandidatesByPositionService = async (positionId: number) => {
         });
 
         return applications.map(app => ({
+            id: app.candidate.id,
+            applicationId: app.id,
             fullName: `${app.candidate.firstName} ${app.candidate.lastName}`,
             currentInterviewStep: app.interviewStep.name,
-            averageScore: calculateAverageScore(app.interviews),
-            id: app.candidate.id,
-            applicationId: app.id
+            currentInterviewStepId: app.currentInterviewStep,
+            averageScore: calculateAverageScore(app.interviews)
         }));
     } catch (error) {
         console.error('Error retrieving candidates by position:', error);

@@ -2,6 +2,7 @@ const NAME_REGEX = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PHONE_REGEX = /^(6|7|9)\d{8}$/;
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
+const ISO_DT    = /^\d{4}-\d{2}-\d{2}T/;
 
 //Length validations according to the database schema
 
@@ -24,7 +25,7 @@ const validatePhone = (phone: string) => {
 };
 
 const validateDate = (date: string) => {
-    if (!date || !DATE_REGEX.test(date)) {
+    if (!date || (!DATE_REGEX.test(date) && !ISO_DT.test(date))) {
         throw new Error('Invalid date');
     }
 };
@@ -46,7 +47,7 @@ const validateEducation = (education: any) => {
 
     validateDate(education.startDate);
 
-    if (education.endDate && !DATE_REGEX.test(education.endDate)) {
+    if (education.endDate && !ISO_DT.test(education.endDate)) {
         throw new Error('Invalid end date');
     }
 };
@@ -66,8 +67,8 @@ const validateExperience = (experience: any) => {
 
     validateDate(experience.startDate);
 
-    if (experience.endDate && !DATE_REGEX.test(experience.endDate)) {
-        throw new Error('Invalid end date');
+    if (experience.endDate && !ISO_DT.test(experience.endDate)) {
+        throw new Error('Invalid experience end date');
     }
 };
 
